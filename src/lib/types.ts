@@ -65,4 +65,5 @@ export interface Program {
   sourceCheckedAt: string; // YYYY-MM-DD（確認日）
   fiscalYear?: string; // 例: "2026"（令和8年度）
   tags?: string[];
+  group?: string; // 同じ制度の国/県/市版をまとめるキー。同じ地域に複数あれば最も身近な実施主体のものだけ表示する
 }

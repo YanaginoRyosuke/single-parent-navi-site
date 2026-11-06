@@ -17,13 +17,23 @@ export function getProgram(id: string): Program | undefined {
 }
 
 // ある居住地の人に関係しうる制度（national + その県 + その市）
+// 同じ group 内では、最も身近な実施主体（市 > 県 > 国）のものだけ残す
+const LEVEL_RANK: Record<Level, number> = { municipality: 0, prefecture: 1, national: 2 };
+
 export function programsForArea(pref: string, city: string): Program[] {
-  return PROGRAMS.filter((p) => {
+  const inArea = PROGRAMS.filter((p) => {
     if (p.level === "national") return true;
     if (p.jurisdiction.pref && p.jurisdiction.pref !== pref) return false;
     if (p.level === "municipality") return p.jurisdiction.city === city;
     return true;
   });
+  const bestLevel = new Map<string, number>();
+  for (const p of inArea) {
+    if (!p.group) continue;
+    const r = LEVEL_RANK[p.level];
+    if (r < (bestLevel.get(p.group) ?? 99)) bestLevel.set(p.group, r);
+  }
+  return inArea.filter((p) => !p.group || LEVEL_RANK[p.level] === bestLevel.get(p.group));
 }
 
 export const CATEGORY_LABEL: Record<Category, string> = {

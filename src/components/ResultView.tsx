@@ -6,9 +6,9 @@ import DiagnosisForm from "./DiagnosisForm";
 import LineCta from "./LineCta";
 import ProgramCard from "./ProgramCard";
 import { INCOME_LABEL, matchAll, type MatchResult } from "@/lib/match";
-import { programsForArea } from "@/lib/programs";
+import { CATEGORY_LABEL, programsForArea } from "@/lib/programs";
 import { decodeProfile } from "@/lib/profile-codec";
-import type { Profile } from "@/lib/types";
+import type { Category, Profile } from "@/lib/types";
 
 const KIND_LABEL = { mother: "母子家庭", father: "父子家庭", bereaved: "死別" } as const;
 
@@ -148,12 +148,27 @@ function Section({
       {count === 0 ? (
         <p className="mt-3 text-sm text-ink-soft">{empty}</p>
       ) : (
-        <div className="mt-4 space-y-3">
-          {items.map((r) => (
-            <ProgramCard key={r.program.id} program={r.program} status={r.status} reasons={r.reasons} />
-          ))}
-        </div>
+        groupByCategory(items).map((g) => (
+          <div key={g.category} className="mt-5">
+            <h3 className="text-sm font-medium text-ink-soft">{CATEGORY_LABEL[g.category]}</h3>
+            <div className="mt-2 space-y-3">
+              {g.items.map((r) => (
+                <ProgramCard key={r.program.id} program={r.program} status={r.status} reasons={r.reasons} />
+              ))}
+            </div>
+          </div>
+        ))
       )}
     </section>
   );
+}
+
+function groupByCategory(items: MatchResult[]): { category: Category; items: MatchResult[] }[] {
+  const out: { category: Category; items: MatchResult[] }[] = [];
+  for (const r of items) {
+    const g = out.find((x) => x.category === r.program.category);
+    if (g) g.items.push(r);
+    else out.push({ category: r.program.category, items: [r] });
+  }
+  return out;
 }

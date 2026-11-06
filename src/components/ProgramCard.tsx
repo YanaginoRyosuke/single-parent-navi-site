@@ -41,8 +41,11 @@ export default function ProgramCard({
           {program.name}
         </Link>
       </h3>
-      <p className="mt-1 text-[1.05rem] font-bold text-moss-deep">{program.amount}</p>
+      <p className="mt-1 line-clamp-2 text-[1.05rem] font-bold leading-snug text-moss-deep">{program.amount}</p>
       <p className="mt-2 text-sm text-ink-soft">{program.summary}</p>
+      {(program.tags?.includes("needs-verification") || /要確認/.test(program.amount)) && (
+        <p className="mt-1 text-xs text-ink-mute">金額や条件の一部は公式サイトで確認できなかったため、窓口での確認が必要です。</p>
+      )}
       {reasons && reasons.length > 0 && (
         <ul className="mt-2 space-y-0.5 text-sm text-amber">
           {reasons.map((r) => (

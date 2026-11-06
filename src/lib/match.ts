@@ -25,6 +25,16 @@ export const INCOME_LABEL: Record<IncomeBand, string> = {
   unknown: "わからない",
 };
 
+// 所得制限の上限を「〜未満」として表示するためのラベル
+export const INCOME_MAX_LABEL: Record<IncomeBand, string> = {
+  lt130: "年収130万円未満",
+  lt200: "年収200万円未満",
+  lt300: "年収300万円未満",
+  lt400: "年収400万円未満",
+  ge400: "年収400万円台以上でも対象の場合あり",
+  unknown: "",
+};
+
 export function ageToStage(age: number): SchoolStage {
   if (age <= 5) return "preschool";
   if (age <= 11) return "elementary";
@@ -88,7 +98,7 @@ function evalRule(rule: Rule, p: Profile): RuleOutcome {
       return {
         ok: false,
         soft: rule.soft ?? false,
-        reason: `所得制限の目安（${INCOME_LABEL[rule.max]}）を超えている可能性があります`,
+        reason: `所得制限の目安（${INCOME_MAX_LABEL[rule.max]}）を超えている可能性があります`,
       };
     }
     case "housing":
@@ -133,9 +143,13 @@ export function matchProgram(program: Program, p: Profile): MatchResult {
   return { program, status, reasons };
 }
 
+const CATEGORY_RANK = ["cash", "medical", "childcare", "education", "housing", "work", "tax", "loan", "daily", "other"];
+
 export function matchAll(programs: Program[], p: Profile): MatchResult[] {
   const order: Record<MatchStatus, number> = { eligible: 0, check: 1, no: 2 };
-  return programs
-    .map((pr) => matchProgram(pr, p))
-    .sort((a, b) => order[a.status] - order[b.status]);
+  const rank = (r: MatchResult) =>
+    order[r.status] * 1000 +
+    (r.program.tags?.includes("core") ? 0 : 100) + // 主要制度（児童扶養手当など）を先頭に
+    CATEGORY_RANK.indexOf(r.program.category);
+  return programs.map((pr) => matchProgram(pr, p)).sort((a, b) => rank(a) - rank(b));
 }

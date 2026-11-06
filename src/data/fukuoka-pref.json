@@ -1,1 +1,487 @@
-[]
+[
+  {
+    "id": "fukuoka-pref-hitorioya-iryo",
+    "name": "ひとり親家庭等医療費支給制度（福岡県の枠組み）",
+    "level": "prefecture",
+    "jurisdiction": {
+      "pref": "福岡県"
+    },
+    "category": "medical",
+    "summary": "ひとり親家庭の親と子（小学校入学後〜18歳の年度末）が病院にかかったとき、健康保険の自己負担分の大部分を県と市町村が助成します。窓口はお住まいの市町村です。",
+    "amount": "県の基準額（市町村により異なる）：入院 1日500円（月7日まで）、通院 1医療機関につき月800円まで、薬局は自己負担なし。保険適用外の費用・入院時の食事代は対象外。",
+    "eligibility": {
+      "rules": [
+        {
+          "type": "residence",
+          "pref": "福岡県"
+        },
+        {
+          "type": "childAge",
+          "max": 18,
+          "note": "子は小学校就学後から18歳に達する日以後の最初の年度末（3月31日）まで。親は18歳年度末までの子を扶養していること"
+        },
+        {
+          "type": "incomeBand",
+          "max": "lt400",
+          "soft": true
+        }
+      ],
+      "notes": [
+        "対象：18歳年度末までの子を扶養する母子家庭の母・父子家庭の父、小学校就学後〜18歳年度末までの母子・父子家庭の子、父母のない子。県内に住所があり医療保険に加入していること。",
+        "所得制限は児童扶養手当に準拠（取扱いは市町村により異なる場合あり）。",
+        "小学校就学前の子は「子ども医療費支給制度」が優先されるため本制度の対象外。",
+        "実施主体は市町村。福岡市・北九州市は市独自の制度（自己負担額・所得限度額の設定あり）で実施しているため、両市の方は fukuoka-city-hitorioya-iryo / kitakyushu-city-hitorioya-iryo を参照。",
+        "市町村ごとの実施状況は県ページの「市町村実施状況一覧（令和8年4月1日現在）」PDFで確認できる。"
+      ]
+    },
+    "applyTo": "お住まいの市区町村のひとり親家庭等医療担当課（県の問い合わせ先：福岡県こども未来課こども企画係 092-643-3013）",
+    "howToApply": "市区町村の窓口で医療証の交付申請を行い、県内の医療機関・薬局で健康保険の資格確認書類と医療証を提示する。",
+    "documents": [
+      "健康保険の資格が確認できるもの",
+      "戸籍謄本など ひとり親であることが分かる書類",
+      "所得が確認できる書類（市町村による）"
+    ],
+    "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/hitorioyairyo.html",
+    "sourceName": "福岡県",
+    "sourceCheckedAt": "2026-11-06",
+    "fiscalYear": "2026",
+    "tags": [
+      "single-parent",
+      "medical"
+    ],
+    "group": "hitorioya-iryo"
+  },
+  {
+    "id": "fukuoka-pref-hitorioya-support-center",
+    "name": "福岡県ひとり親サポートセンター（就業・養育費・法律相談）",
+    "level": "prefecture",
+    "jurisdiction": {
+      "pref": "福岡県"
+    },
+    "category": "work",
+    "summary": "ひとり親の方や離婚を考えている方が、仕事探し・資格取得・養育費・法律の相談を無料でできる県の総合窓口です（春日・飯塚・久留米の3か所）。",
+    "amount": "相談無料。就業相談、自立支援プログラム策定（児童扶養手当受給者向け）、就業支援講習会（パソコン・医療事務・介護事務など。夜間・土日開催あり、1歳〜就学前の託児あり）、養育費相談、弁護士による無料法律相談（月3回・予約制）、来所困難な方への弁護士相談クーポン（1時間無料）。",
+    "eligibility": {
+      "rules": [
+        {
+          "type": "residence",
+          "pref": "福岡県"
+        }
+      ],
+      "notes": [
+        "対象：ひとり親家庭の母または父、寡婦、離婚を考えている方。",
+        "福岡市・北九州市にお住まいの方は、各市が独自に設けている窓口（福岡市立ひとり親家庭支援センター／北九州市立母子・父子福祉センター）を利用する（県ページに明記）。弁護士相談クーポンは北九州市・福岡市・久留米市在住者は対象外。",
+        "担当区域：春日センター＝福岡広域生活圏（福岡市除く）、飯塚ブランチ＝筑豊・京築・北九州広域生活圏（北九州市除く）、久留米センター＝筑後広域生活圏。",
+        "養育費相談は春日センターと飯塚ブランチのみ。"
+      ]
+    },
+    "applyTo": "春日センター 092-584-3931（春日市原町3-1-7 クローバープラザ6階）／飯塚ブランチ 0948-21-0390／久留米センター 0942-32-1140",
+    "howToApply": "お近くのセンターに電話で問い合わせる。弁護士相談・夜間相談は予約制。",
+    "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/hitorishurou.html",
+    "sourceName": "福岡県",
+    "sourceCheckedAt": "2026-11-06",
+    "fiscalYear": "2024",
+    "tags": [
+      "single-parent",
+      "consultation",
+      "excludes-designated-cities"
+    ],
+    "group": "shugyo-shien-center"
+  },
+  {
+    "id": "fukuoka-pref-yorozu-line",
+    "name": "福岡ひとり親よろず相談ライン（LINE相談）",
+    "level": "prefecture",
+    "jurisdiction": {
+      "pref": "福岡県"
+    },
+    "category": "other",
+    "summary": "生活・仕事・子育てなど、どんなことでもLINEで無料相談できる県の窓口です。匿名でも相談できます。",
+    "amount": "相談無料。LINEで友だち登録して「相談する」をタップ。月〜金 9〜17時（水曜は20時まで）、土曜・第1・第3日曜 9〜16時。",
+    "eligibility": {
+      "rules": [
+        {
+          "type": "residence",
+          "pref": "福岡県"
+        }
+      ],
+      "notes": [
+        "対象：福岡県内在住のひとり親家庭の方、離婚を考えている方。",
+        "福岡市・北九州市在住の方は、各市の相談窓口を案内される。"
+      ]
+    },
+    "applyTo": "福岡県こども未来課 こどもの育ち・ひとり親支援係 092-643-3257（LINE相談はひとり親サポートセンターの相談員が対応）",
+    "howToApply": "LINEアカウントを友だち登録し、トーク画面の「相談する」をタップして相談する。",
+    "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/hitorioya-sns.html",
+    "sourceName": "福岡県",
+    "sourceCheckedAt": "2026-11-06",
+    "fiscalYear": "2023",
+    "tags": [
+      "single-parent",
+      "consultation"
+    ]
+  },
+  {
+    "id": "fukuoka-pref-boshi-fushi-kafu-shikin",
+    "name": "母子・父子・寡婦福祉資金貸付金（福岡県）",
+    "level": "prefecture",
+    "jurisdiction": {
+      "pref": "福岡県"
+    },
+    "category": "loan",
+    "summary": "ひとり親家庭の親や子が、進学費用・生活費・技能習得費・引っ越し費用などを無利子または低利で借りられる制度です。",
+    "amount": "修学資金・就学支度資金・技能習得資金・生活資金・転宅資金・住宅資金・事業開始資金など。限度額は資金の種類ごとに定められている（県ページのPDF「種類及び限度額等」参照）。無利子または低利子。返済が遅れると年3%の違約金。",
+    "eligibility": {
+      "rules": [
+        {
+          "type": "residence",
+          "pref": "福岡県"
+        },
+        {
+          "type": "childAge",
+          "max": 19,
+          "note": "20歳未満の児童を扶養していること（寡婦向け資金は別要件）"
+        }
+      ],
+      "notes": [
+        "対象：20歳未満の児童を扶養する母子家庭の母・父子家庭の父、その児童、寡婦、寡婦に扶養される20歳以上の子、40歳以上の配偶者のない女性など。",
+        "償還意思と償還能力で貸付可否を判断。借受人との面接が必須。交付まで通常1か月以上。",
+        "子のための資金（修学資金など）は子が連帯借受人になる。資金の種類によっては連帯保証人が必要。",
+        "北九州市・福岡市・久留米市にお住まいの方は県ではなく各市（区）の窓口へ（fukuoka-city-boshi-fushi-kafu-shikin / kitakyushu-city-boshi-fushi-kafu-shikin 参照）。"
+      ]
+    },
+    "applyTo": "最寄りの福岡県保健福祉（環境）事務所、または市の福祉事務所",
+    "howToApply": "事前相談（随時）→面接→申請書類（住民票・戸籍謄本・印鑑証明書など）提出→審査→貸付。事業資金は事業計画書が必要。",
+    "documents": [
+      "住民票",
+      "戸籍謄本",
+      "印鑑証明書",
+      "所得が分かる書類",
+      "進学先の合格通知や見積書など資金の使途が分かる書類"
+    ],
+    "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/boshikahuhukushishikin.html",
+    "sourceName": "福岡県",
+    "sourceCheckedAt": "2026-11-06",
+    "fiscalYear": "2025",
+    "tags": [
+      "single-parent",
+      "loan",
+      "excludes-designated-cities"
+    ],
+    "group": "boshi-fushi-shikin"
+  },
+  {
+    "id": "fukuoka-pref-jutaku-shien-shikin",
+    "name": "ひとり親家庭 住宅支援資金貸付（家賃の無利子貸付・償還免除あり）",
+    "level": "prefecture",
+    "jurisdiction": {
+      "pref": "福岡県"
+    },
+    "category": "housing",
+    "summary": "資格取得や就職に取り組む低所得のひとり親に、家賃（月7万円まで・12か月分）を無利子で貸し、就職して1年働き続ければ返さなくてよくなる制度です。",
+    "amount": "入居している住宅の家賃実費（月額上限7万円）×最長12か月、無利子。貸付から1年以内に就職し1年間就労を継続（または所得増が見込まれる転職をして1年継続）した場合は償還免除。",
+    "eligibility": {
+      "rules": [
+        {
+          "type": "residence",
+          "pref": "福岡県"
+        },
+        {
+          "type": "housing",
+          "in": [
+            "rent"
+          ]
+        },
+        {
+          "type": "incomeBand",
+          "max": "lt400",
+          "soft": true
+        }
+      ],
+      "notes": [
+        "対象：児童扶養手当を受給している方（または同水準の所得）で、県または市（北九州市・福岡市を除く）の「母子・父子自立支援プログラム」の策定を受けている方。",
+        "北九州市・福岡市にお住まいの方は対象外（各市の社会福祉協議会の同種の貸付を参照）。",
+        "実施主体は福岡県社会福祉協議会。「ひとり親家庭高等職業訓練促進資金貸付事業」の追加メニュー。"
+      ]
+    },
+    "applyTo": "福岡県社会福祉協議会 総務課 092-584-3377",
+    "howToApply": "まずひとり親サポートセンター等で自立支援プログラムの策定を受け、県社会福祉協議会に貸付を申請する。",
+    "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/hitorioya-jukyo.html",
+    "sourceName": "福岡県",
+    "sourceCheckedAt": "2026-11-06",
+    "fiscalYear": "2026",
+    "tags": [
+      "single-parent",
+      "housing",
+      "loan",
+      "excludes-designated-cities"
+    ]
+  },
+  {
+    "id": "fukuoka-pref-koto-shokugyo-kunren",
+    "name": "高等職業訓練促進給付金（福岡県・町村在住者向け）",
+    "level": "prefecture",
+    "jurisdiction": {
+      "pref": "福岡県"
+    },
+    "category": "work",
+    "summary": "看護師・保育士・介護福祉士などの資格を取るために6か月以上学校に通うひとり親に、在学中の生活費として毎月給付金が出ます。子どもが2人以上いると加算があります。",
+    "amount": "月10万円（市町村民税非課税世帯）／月7万500円（課税世帯）、修了前の最後の12か月は月14万円／11万500円。支給上限60月。非課税世帯で20歳未満の児童が2人以上いる場合、児童1人につき月1万円加算（町村居住者。最後の12か月は扶養児童5人以上に限る）。修了支援給付金：非課税5万円／課税2万5千円。",
+    "eligibility": {
+      "rules": [
+        {
+          "type": "residence",
+          "pref": "福岡県"
+        },
+        {
+          "type": "childAge",
+          "max": 19,
+          "note": "20歳未満の児童を扶養していること"
+        },
+        {
+          "type": "incomeBand",
+          "max": "lt400",
+          "soft": true
+        },
+        {
+          "type": "flag",
+          "key": "wantsQualification",
+          "soft": true
+        }
+      ],
+      "notes": [
+        "県が窓口になるのは県内の「町村」に居住する方。市にお住まいの方は各市の福祉事務所へ（福岡市・北九州市はそれぞれ市の制度を参照）。",
+        "所得が児童扶養手当の受給対象水準であること（令和6年8月30日以降、超えても1年に限り継続対象）。",
+        "養成機関で6か月以上修業する予定で、就業または育児と修業の両立が困難と認められること。",
+        "対象資格例：看護師・准看護師・介護福祉士・保育士・理学療法士・作業療法士・調理師・歯科衛生士・美容師・社会福祉士・建築士・自動車整備士・Webクリエイターなど。"
+      ]
+    },
+    "applyTo": "お住まいの地域の福岡県保健福祉（環境）事務所（町村在住者）。市在住者は市福祉事務所。",
+    "howToApply": "入学前に保健福祉（環境）事務所へ事前相談し、修業開始後に申請する（申請月分から支給）。",
+    "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/hitorioyakyuuhukin.html",
+    "sourceName": "福岡県",
+    "sourceCheckedAt": "2026-11-06",
+    "fiscalYear": "2026",
+    "tags": [
+      "single-parent",
+      "work",
+      "multi-child",
+      "towns-only"
+    ],
+    "group": "koto-shokugyo-kunren"
+  },
+  {
+    "id": "fukuoka-pref-jiritsu-kyoiku-kunren",
+    "name": "自立支援教育訓練給付金（福岡県・町村在住者向け）",
+    "level": "prefecture",
+    "jurisdiction": {
+      "pref": "福岡県"
+    },
+    "category": "work",
+    "summary": "就職につながる講座（雇用保険の教育訓練給付の指定講座）を受けるひとり親に、受講料の6割を助成します。",
+    "amount": "受講料の6割（上限20万円）。専門実践教育訓練の講座は年間上限40万円×修学年数（最大5年）、修了後1年以内に資格取得・就職した場合は追加支給あり。算出額が1万2千円以下の場合は支給なし。",
+    "eligibility": {
+      "rules": [
+        {
+          "type": "residence",
+          "pref": "福岡県"
+        },
+        {
+          "type": "flag",
+          "key": "wantsQualification",
+          "soft": true
+        }
+      ],
+      "notes": [
+        "県が窓口になるのは県内の「町村」に居住する母子家庭の母・父子家庭の父。市在住者は市福祉事務所へ。",
+        "「母子・父子自立支援プログラム」の策定を受けていること（ひとり親サポートセンターで策定）。",
+        "受講前に申請して講座の指定を受ける必要がある。雇用保険の教育訓練給付を受けられる方は、その額を差し引いた額が支給される。"
+      ]
+    },
+    "applyTo": "お住まいの地域の福岡県保健福祉（環境）事務所（町村在住者）。プログラム策定はひとり親サポートセンター。",
+    "howToApply": "ひとり親サポートセンターで自立支援プログラムを策定→受講前に講座指定の申請→修了後に支給申請。",
+    "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/hitorioyakyuuhukin.html",
+    "sourceName": "福岡県",
+    "sourceCheckedAt": "2026-11-06",
+    "fiscalYear": "2026",
+    "tags": [
+      "single-parent",
+      "work",
+      "towns-only"
+    ],
+    "group": "jiritsu-kyoiku-kunren"
+  },
+  {
+    "id": "fukuoka-pref-kosotsu-nintei-shien",
+    "name": "高等学校卒業程度認定試験合格支援事業（福岡県・町村在住者向け）",
+    "level": "prefecture",
+    "jurisdiction": {
+      "pref": "福岡県"
+    },
+    "category": "education",
+    "summary": "高校を卒業していないひとり親本人またはその子どもが、高卒認定試験の対策講座を受けるとき、受講料の一部を支給します。",
+    "amount": "通信制：受講開始時に受講料の4割（上限10万円）、修了時1割（上限12万5千円）、合格時1割（上限15万円）。通学制または併用：開始時4割（上限20万円）、修了時1割（上限25万円）、合格時1割（上限30万円）。",
+    "eligibility": {
+      "rules": [
+        {
+          "type": "residence",
+          "pref": "福岡県"
+        }
+      ],
+      "notes": [
+        "県が窓口になるのは県内の「町村」在住者。市在住者は市福祉事務所へ。実施していない市もある。",
+        "自立支援プログラムの策定を受けていること、大学入学資格を取得していないこと。",
+        "高等学校等就学支援金の対象となる講座は対象外。"
+      ]
+    },
+    "applyTo": "お住まいの地域の福岡県保健福祉（環境）事務所（町村在住者）",
+    "howToApply": "受講前に講座の指定申請を行い、受講開始時・修了時・合格時にそれぞれ支給申請する。",
+    "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/hitorioyakyuuhukin.html",
+    "sourceName": "福岡県",
+    "sourceCheckedAt": "2026-11-06",
+    "fiscalYear": "2026",
+    "tags": [
+      "single-parent",
+      "education",
+      "towns-only"
+    ],
+    "group": "kosotsu-nintei"
+  },
+  {
+    "id": "fukuoka-pref-yoikuhi-koseishosho",
+    "name": "養育費の公正証書等作成支援（福岡県・町村在住者向け）",
+    "level": "prefecture",
+    "jurisdiction": {
+      "pref": "福岡県"
+    },
+    "category": "cash",
+    "summary": "養育費の取り決めを公正証書や調停で正式な書面にしたときの費用（公証人手数料・印紙代など）を、上限3万円まで県が補助します。",
+    "amount": "対象経費の全額（上限3万円）。1人1回限り。対象経費：公証人手数料、調停・裁判の収入印紙代、戸籍謄本等の取得費、連絡用切手代。",
+    "eligibility": {
+      "rules": [
+        {
+          "type": "residence",
+          "pref": "福岡県"
+        }
+      ],
+      "notes": [
+        "対象は福岡県内の「町村」に居住するひとり親。福岡市・北九州市は市独自の制度（上限5万円）を参照。",
+        "令和4年4月1日以降に作成した債務名義（強制執行認諾約款付公正証書・調停調書など）が対象。",
+        "申請期限：公正証書等を作成した日の翌日から6か月以内。"
+      ]
+    },
+    "applyTo": "福岡県ひとり親サポートセンター（春日 092-584-3931：糟屋・朝倉・三井・三潴・八女郡）／飯塚ブランチ（0948-21-0390：遠賀・鞍手・嘉穂・田川・京都・築上郡）",
+    "howToApply": "補助金交付申請書に必要書類を添えて、担当区域のサポートセンターへ郵送または持参。",
+    "documents": [
+      "児童扶養手当証書の写し（受給者）または戸籍謄本・住民票（非受給者）",
+      "領収書など経費が分かる書類",
+      "公正証書等の写し",
+      "振込先が分かる書類"
+    ],
+    "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/youikuhi-kakuho-kouseishousho.html",
+    "sourceName": "福岡県",
+    "sourceCheckedAt": "2026-11-06",
+    "fiscalYear": "2022",
+    "tags": [
+      "single-parent",
+      "child-support",
+      "towns-only"
+    ],
+    "group": "yoikuhi-hojo"
+  },
+  {
+    "id": "fukuoka-pref-yoikuhi-hosho",
+    "name": "養育費保証契約締結支援（福岡県・町村在住者向け）",
+    "level": "prefecture",
+    "jurisdiction": {
+      "pref": "福岡県"
+    },
+    "category": "cash",
+    "summary": "養育費が払われないときに保証会社が立て替える「養育費保証契約」を結んだとき、その保証料を上限5万円まで県が補助します。",
+    "amount": "保証料と5万円のいずれか少ない額。1人1回限り。",
+    "eligibility": {
+      "rules": [
+        {
+          "type": "residence",
+          "pref": "福岡県"
+        },
+        {
+          "type": "incomeBand",
+          "max": "lt400",
+          "soft": true
+        }
+      ],
+      "notes": [
+        "対象は福岡県内の「町村」に居住するひとり親。福岡市・北九州市は市独自の制度を参照。",
+        "児童扶養手当を受給しているか同程度の所得水準であること、養育費の債務名義があること、保証会社と1年以上の保証契約を結んでいること。",
+        "申請期限：保証契約を締結した日の翌日から6か月以内。"
+      ]
+    },
+    "applyTo": "福岡県ひとり親サポートセンター（春日 092-584-3931）／飯塚ブランチ（0948-21-0390）",
+    "howToApply": "補助金交付申請書に必要書類を添えて、担当区域のサポートセンターへ郵送または持参。",
+    "documents": [
+      "児童扶養手当証書の写しまたは市町村長の証明書",
+      "領収書",
+      "公正証書等の写し",
+      "養育費保証契約書の写し",
+      "振込先が分かる書類"
+    ],
+    "sourceUrl": "https://www.pref.fukuoka.lg.jp/contents/youikuhi-kakuho-hoshoukeiyaku.html",
+    "sourceName": "福岡県",
+    "sourceCheckedAt": "2026-11-06",
+    "fiscalYear": "2022",
+    "tags": [
+      "single-parent",
+      "child-support",
+      "towns-only"
+    ],
+    "group": "yoikuhi-hojo"
+  },
+  {
+    "id": "fukuoka-pref-kenei-jutaku",
+    "name": "県営住宅（子育て世帯優先枠・家賃減免）",
+    "level": "prefecture",
+    "jurisdiction": {
+      "pref": "福岡県"
+    },
+    "category": "housing",
+    "summary": "収入が少なく住まいに困っている世帯が安い家賃で入れる県営住宅です。新婚・子育て世帯の優先枠があり、収入が著しく低い場合は家賃が減免されます。",
+    "amount": "家賃は収入等に応じて決定（応能応益）。収入が著しく低く納付が困難な場合は家賃を25〜75%減免。ひとり親世帯向けの抽選倍率優遇の有無は要確認。",
+    "eligibility": {
+      "rules": [
+        {
+          "type": "residence",
+          "pref": "福岡県"
+        },
+        {
+          "type": "housing",
+          "in": [
+            "rent",
+            "family"
+          ]
+        },
+        {
+          "type": "incomeBand",
+          "max": "lt300",
+          "soft": true
+        }
+      ],
+      "notes": [
+        "入居資格（県営住宅の概要・令和5年4月時点）：同居者がいる場合は親族であること、月収が入居収入基準以下（本来階層15万8千円、裁量階層21万4千円）、現に住宅に困窮していること（持ち家がない等）、暴力団員でないこと。",
+        "抽選の倍率優遇の対象は多回数落選世帯・高齢者世帯・障がい者世帯・DV被害者世帯で、ひとり親世帯は優遇対象として明記されていない（要確認）。戸数枠として「新婚・子育て世帯優先枠」あり。",
+        "家賃減免の具体的な基準額は公式ページに未掲載のため要確認。",
+        "募集は福岡県住宅供給公社が実施。県営住宅は福岡市・北九州市内にもあるため、両市の方も申し込める。"
+      ]
+    },
+    "applyTo": "福岡県住宅供給公社（県営住宅の募集窓口）／県営住宅課 092-651-1111（内線4784）",
+    "howToApply": "福岡県住宅供給公社の募集案内に従って申し込み、抽選・資格審査を経て入居。家賃減免は入居後に管理事務所へ申請。",
+    "sourceUrl": "https://www.pref.fukuoka.lg.jp/uploaded/life/697861_61864359_misc.pdf",
+    "sourceName": "福岡県",
+    "sourceCheckedAt": "2026-11-06",
+    "fiscalYear": "2023",
+    "tags": [
+      "housing",
+      "needs-verification"
+    ]
+  }
+]

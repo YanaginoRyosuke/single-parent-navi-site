@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import LineCta from "@/components/LineCta";
 import { CATEGORY_LABEL, PROGRAMS, getProgram, levelLabel } from "@/lib/programs";
-import { INCOME_LABEL, STAGE_LABEL } from "@/lib/match";
+import { INCOME_MAX_LABEL, STAGE_LABEL } from "@/lib/match";
 import type { Rule } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -33,7 +33,7 @@ function ruleToText(r: Rule): string | null {
     case "childStage":
       return `${r.in.map((s) => STAGE_LABEL[s]).join("・")}のお子さんがいる`;
     case "incomeBand":
-      return `所得制限あり（年収${INCOME_LABEL[r.max]}が目安）`;
+      return `所得制限あり（${INCOME_MAX_LABEL[r.max]}が目安）`;
     case "housing":
       return null;
     case "employment":
@@ -60,7 +60,7 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[id]"
         {levelLabel(p)} / {CATEGORY_LABEL[p.category]}
       </p>
       <h1 className="display mt-3 text-[1.7rem] sm:text-[2.1rem]">{p.name}</h1>
-      <p className="mt-3 text-xl font-bold text-moss-deep">{p.amount}</p>
+      <p className="mt-3 text-lg font-bold leading-relaxed text-moss-deep">{p.amount}</p>
       <p className="mt-3 text-ink-soft">{p.summary}</p>
 
       <section className="card mt-8 p-5">
