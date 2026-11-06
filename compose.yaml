@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        # LINE公式アカウントのURL。未設定なら「準備中」表示
+        NEXT_PUBLIC_LINE_URL: ${NEXT_PUBLIC_LINE_URL:-}
+    image: single-parent-navi:local
+    ports:
+      - "3000:3000"
+    restart: unless-stopped

@@ -17,6 +17,16 @@ npm test           # 判定ロジックのテスト
 npm run validate   # 制度データの整合性チェック
 ```
 
+### Docker で動かす
+
+```bash
+docker compose up --build        # http://localhost:3000
+# LINE の URL を埋め込む場合
+NEXT_PUBLIC_LINE_URL=https://lin.ee/xxxx docker compose up --build
+```
+
+`Dockerfile` は multi-stage（deps → builder → runner）で、Next.js の `output: "standalone"` を使って実行イメージには `node_modules` を含めません。`NEXT_PUBLIC_*` はビルド時に埋め込まれるため、変更時はイメージを作り直してください。
+
 LINE 公式アカウントができたら `.env.local` に `NEXT_PUBLIC_LINE_URL=https://lin.ee/xxxx` を入れると、各ページの LINE 導線が有効になる。
 
 ## 構成
