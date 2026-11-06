@@ -1,0 +1,26 @@
+[
+  {
+    "id": "jp-sample",
+    "name": "（サンプル）児童扶養手当",
+    "level": "national",
+    "jurisdiction": {},
+    "category": "cash",
+    "summary": "18歳までの子どもを育てるひとり親に、所得に応じて毎月支給される手当。ビルド確認用のサンプルデータ。",
+    "amount": "月 最大46,690円（子1人）＋2人目以降 加算",
+    "eligibility": {
+      "rules": [
+        { "type": "childAge", "max": 18, "note": "18歳到達後最初の3月31日まで" },
+        { "type": "incomeBand", "max": "lt400", "soft": true }
+      ],
+      "notes": ["所得制限は扶養人数で変わります"]
+    },
+    "applyTo": "市区町村の子育て支援窓口",
+    "howToApply": "窓口で認定請求書を提出。毎年8月に現況届。",
+    "documents": ["戸籍謄本", "所得証明"],
+    "sourceUrl": "https://www.cfa.go.jp/",
+    "sourceName": "こども家庭庁",
+    "sourceCheckedAt": "2026-11-06",
+    "fiscalYear": "2026",
+    "tags": ["multi-child"]
+  }
+]

@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ひとり親ナビ（MVP）
 
-## Getting Started
+ひとり親家庭（特に子どもが複数いる世帯）が、国・県・市にまたがる支援制度の「取りこぼし」を見つけるための診断サイト。
 
-First, run the development server:
+- 住んでいる市・ご家庭の種類・子どもの年齢・年収の目安などを入れると、関係のある制度を「該当しそう / 要確認 / 対象外」に分けて一覧にする
+- 制度ごとに「金額の目安・窓口・申請の流れ・必要書類・出典」を表示
+- 自治体ごとの制度一覧ページ（`/area/fukuoka-shi` など）を静的生成（SEO/AIO 用。将来は全国に展開）
+- 入力内容は URL のハッシュ（`#` 以降）にだけ載せ、サーバーには送らない
+
+## 動かす
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # 本番ビルド
+npm test           # 判定ロジックのテスト
+npm run validate   # 制度データの整合性チェック
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+LINE 公式アカウントができたら `.env.local` に `NEXT_PUBLIC_LINE_URL=https://lin.ee/xxxx` を入れると、各ページの LINE 導線が有効になる。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 構成
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/
+    page.tsx                 診断フォーム（トップ）
+    result/page.tsx          診断結果（クライアントで判定）
+    programs/[id]/page.tsx   制度の詳細（静的生成）
+    area/[slug]/page.tsx     自治体ごとの一覧（静的生成）
+  components/
+    DiagnosisForm.tsx        入力フォーム
+    ResultView.tsx           結果表示
+    ProgramCard.tsx          制度カード
+    LineCta.tsx              LINE 登録導線（NEXT_PUBLIC_LINE_URL が無いと準備中表示）
+  lib/
+    types.ts                 制度データの型（Program / Rule / Profile）
+    match.ts                 判定ロジック（rules を評価して eligible / check / no）
+    programs.ts              データの読み込み・自治体別の絞り込み
+    profile-codec.ts         入力内容 ⇄ URL ハッシュの変換、対応自治体の定義
+  data/
+    national.json            国の制度
+    fukuoka-pref.json        福岡県の制度
+    fukuoka-city.json        福岡市の制度
+    kitakyushu-city.json     北九州市の制度
+docs/
+  data-guide.md              制度データの書き方・追加の仕方
+scripts/
+  validate-data.mjs          データの整合性チェック
+tests/                       判定ロジック・コーデックのテスト
+```
 
-## Learn More
+## 制度データの考え方
 
-To learn more about Next.js, take a look at the following resources:
+- 1制度 = 1オブジェクト。`eligibility.rules` に判定ルールを並べ、すべて通れば「該当しそう」
+- `soft: true` のルール（所得制限の目安など）だけ外れた場合は「要確認」、`soft` でないルールが外れたら「対象外」
+- 金額・条件は**公式サイトに書いてある数字だけ**を使い、`sourceUrl` と `sourceCheckedAt` を必ず付ける
+- 詳細は [docs/data-guide.md](docs/data-guide.md)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## これからやること（候補）
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] 制度データの精査（「要確認」になっている金額を公式サイトで確定）
+- [ ] 福岡県内の他の市町村、九州、全国へ自治体ページを展開（データ収集の自動化が前提）
+- [ ] LINE 公式アカウント連携（登録時に市・子どもの年齢を取り、年度改定時に通知）
+- [ ] 制度の文脈に沿ったアフィリエイト枠（固定費の見直し、資格講座、養育費保証など）
+- [ ] 自治体サイトからの制度情報の自動抽出・更新検知
