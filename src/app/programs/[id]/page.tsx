@@ -59,12 +59,15 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[id]"
         {" / "}
         {levelLabel(p)} / {CATEGORY_LABEL[p.category]}
       </p>
-      <h1 className="display mt-3 text-[1.7rem] sm:text-[2.1rem]">{p.name}</h1>
-      <p className="mt-3 text-lg font-bold leading-relaxed text-moss-deep">{p.amount}</p>
+      <h1 className="h-page mt-3">{p.name}</h1>
+      <dl className="mt-4 border-t border-line pt-3">
+        <dt className="text-xs text-ink-mute">金額・内容の目安</dt>
+        <dd className="figure mt-0.5 text-[17px] leading-relaxed text-moss-deep">{p.amount}</dd>
+      </dl>
       <p className="mt-3 text-ink-soft">{p.summary}</p>
 
       <section className="card mt-8 p-5">
-        <h2 className="display text-lg">対象になる人</h2>
+        <h2 className="h-card">対象になる人</h2>
         <ul className="mt-2 list-disc space-y-1 pl-5">
           {conditions.map((c) => (
             <li key={c}>{c}</li>
@@ -78,7 +81,7 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[id]"
       </section>
 
       <section className="card mt-4 p-5">
-        <h2 className="display text-lg">申請の仕方</h2>
+        <h2 className="h-card">申請の仕方</h2>
         <dl className="mt-2 space-y-3">
           <div>
             <dt className="text-sm text-ink-soft">窓口</dt>

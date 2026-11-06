@@ -51,7 +51,7 @@ function Chip({
 function Field({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
   return (
     <fieldset className="mt-8 first:mt-0">
-      <legend className="display text-lg">{label}</legend>
+      <legend className="h-card">{label}</legend>
       {hint && <p className="mt-1 text-sm text-ink-soft">{hint}</p>}
       <div className="mt-3 flex flex-wrap gap-2">{children}</div>
     </fieldset>
@@ -126,7 +126,7 @@ export default function DiagnosisForm({ initial }: { initial?: Profile }) {
       </Field>
 
       <fieldset className="mt-8">
-        <legend className="display text-lg">お子さんの年齢</legend>
+        <legend className="h-card">お子さんの年齢</legend>
         <p className="mt-1 text-sm text-ink-soft">人数分入れてください。年齢で使える制度が変わります。</p>
         <div className="mt-3 space-y-2">
           {ages.map((age, i) => (
@@ -136,7 +136,7 @@ export default function DiagnosisForm({ initial }: { initial?: Profile }) {
               </label>
               <select
                 id={`age-${i}`}
-                className="min-h-12 flex-1 rounded-lg border border-line bg-white px-3"
+                className="min-h-12 flex-1 rounded-[var(--radius-sm)] border border-line bg-white px-3"
                 value={age}
                 onChange={(e) => {
                   const next = [...ages];
@@ -220,7 +220,7 @@ export default function DiagnosisForm({ initial }: { initial?: Profile }) {
         {!ready && missing.length > 0 && (
           <p className="mt-2 text-center text-sm text-ink-soft">あと「{missing.join("」「")}」を選ぶと結果が見られます</p>
         )}
-        <p className="mt-3 text-center text-xs text-ink-mute">入力内容はこの端末の中だけで使われ、サーバーには送られません。</p>
+        <p className="mt-3 text-center text-xs text-ink-mute">入力内容はこの端末の中だけで使われ、サーバーには送られません</p>
       </div>
     </form>
   );

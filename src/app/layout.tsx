@@ -27,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <header className="border-b border-line bg-paper">
           <div className="mx-auto flex max-w-2xl items-center justify-between px-4 py-3">
-            <Link href="/" className="display text-lg text-ink">
+            <Link href="/" className="display text-[17px] text-ink">
               ひとり親ナビ
             </Link>
             <nav className="flex gap-4 text-sm text-ink-soft">

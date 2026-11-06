@@ -48,13 +48,13 @@ export default async function AreaPage({ params }: PageProps<"/area/[slug]">) {
 
   return (
     <div className="mx-auto max-w-2xl px-4 pb-12 pt-8">
-      <h1 className="display text-[1.7rem] sm:text-[2.1rem]">
+      <h1 className="h-page">
         {area.label}のひとり親家庭が
         <br />
         使える支援制度
       </h1>
       <p className="mt-3 text-ink-soft">
-        国・福岡県・{area.city === "その他" ? "お住まいの市町村" : area.city}の制度を合わせて{programs.length}件。
+        国・福岡県・{area.city === "その他" ? "お住まいの市町村" : area.city}の制度を合わせて<span className="figure">{programs.length}件</span>。
         ご家庭の状況を入れると、あなたに関係のあるものだけに絞れます。
       </p>
       <Link href="/" className="btn-primary mt-5">
@@ -63,7 +63,7 @@ export default async function AreaPage({ params }: PageProps<"/area/[slug]">) {
 
       {grouped.map((g) => (
         <section key={g.category} className="mt-10">
-          <h2 className="display text-xl">{CATEGORY_LABEL[g.category]}</h2>
+          <h2 className="h-section">{CATEGORY_LABEL[g.category]}</h2>
           <div className="mt-4 space-y-3">
             {g.items.map((p) => (
               <ProgramCard key={p.id} program={p} />

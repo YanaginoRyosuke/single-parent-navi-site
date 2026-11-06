@@ -6,23 +6,18 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-2xl px-4 pb-12 pt-10 sm:pt-14">
       <section>
-        <h1 className="display text-[1.7rem] sm:text-[2.4rem]">
+        <h1 className="h-hero">
           もらえるはずのお金、
           <br />
-          取りこぼしていませんか。
+          取りこぼしていませんか
         </h1>
         <p className="mt-5 text-ink-soft">
           ひとり親家庭が使える手当・助成・減免は、国・県・市にまたがって
-          {count > 0 ? `${count}以上` : "たくさん"}
+          {count > 0 ? `${count}件` : "たくさん"}
           あります。でも、申請しないともらえません。
           住んでいる市と子どもの年齢を入れるだけで、あなたの家庭に関係のある制度を一覧にします。
         </p>
-        <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm text-ink-soft">
-          <li>無料</li>
-          <li>登録不要</li>
-          <li>入力は2分</li>
-          <li>公式サイトの情報だけ</li>
-        </ul>
+        <p className="mt-3 text-sm text-ink-mute">無料、登録なし、入力は2分</p>
       </section>
 
       <section className="mt-8" aria-label="診断">
@@ -30,7 +25,7 @@ export default function Home() {
       </section>
 
       <section className="mt-14 text-sm text-ink-soft">
-        <h2 className="display text-base text-ink">このサイトでできること</h2>
+        <h2 className="h-card text-ink">このサイトでできること</h2>
         <p className="mt-2">
           診断結果では、制度ごとに「もらえる金額の目安」「申請する窓口」「必要な書類」をまとめています。
           結果のページを保存しておけば、窓口に行くときにそのまま見せられます。

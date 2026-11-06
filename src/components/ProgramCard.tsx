@@ -3,15 +3,20 @@ import type { Program } from "@/lib/types";
 import { CATEGORY_LABEL, levelLabel } from "@/lib/programs";
 import type { MatchStatus } from "@/lib/match";
 
-const STATUS: Record<MatchStatus, { label: string; cls: string }> = {
-  eligible: { label: "該当しそう", cls: "bg-moss-tint text-moss-deep" },
-  check: { label: "要確認", cls: "bg-amber-tint text-amber" },
-  no: { label: "対象外の可能性", cls: "bg-paper-deep text-ink-soft" },
+const STAMP_LABEL: Record<MatchStatus, string> = {
+  eligible: "該当",
+  check: "要確認",
+  no: "対象外",
 };
 
-export function StatusBadge({ status }: { status: MatchStatus }) {
-  const s = STATUS[status];
-  return <span className={`badge ${s.cls}`}>{s.label}</span>;
+// 署名：書類に押す検印のような丸いマークで判定を示す
+export function Stamp({ status }: { status: MatchStatus }) {
+  const label = STAMP_LABEL[status];
+  return (
+    <span className="stamp" data-status={status} role="img" aria-label={`判定：${label}`}>
+      {label}
+    </span>
+  );
 }
 
 export default function ProgramCard({
@@ -24,38 +29,49 @@ export default function ProgramCard({
   reasons?: string[];
 }) {
   const dimmed = status === "no";
+  const needsCheck = program.tags?.includes("needs-verification") || /要確認/.test(program.amount);
   return (
-    <article className={`card p-4 sm:p-5 ${dimmed ? "opacity-70" : ""}`}>
-      <div className="flex flex-wrap items-center gap-2 text-xs text-ink-soft">
-        <span className="badge border border-line bg-white">{levelLabel(program)}</span>
-        <span>{CATEGORY_LABEL[program.category]}</span>
-        {program.tags?.includes("multi-child") && <span>子どもが多いほど手厚い</span>}
-        {status && (
-          <span className="ml-auto">
-            <StatusBadge status={status} />
-          </span>
-        )}
+    <article className={`card p-5 ${dimmed ? "opacity-70" : ""}`}>
+      <div className="flex items-start gap-4">
+        <div className="min-w-0 flex-1">
+          <p className="text-sm text-ink-mute">
+            {levelLabel(program)}
+            <span className="mx-2">/</span>
+            {CATEGORY_LABEL[program.category]}
+            {program.tags?.includes("multi-child") && (
+              <>
+                <span className="mx-2">/</span>子どもが多いほど手厚い
+              </>
+            )}
+          </p>
+          <h3 className="h-card mt-1">
+            <Link href={`/programs/${program.id}`} className="hover:underline">
+              {program.name}
+            </Link>
+          </h3>
+        </div>
+        {status && <Stamp status={status} />}
       </div>
-      <h3 className="display mt-2 text-lg">
-        <Link href={`/programs/${program.id}`} className="hover:underline">
-          {program.name}
-        </Link>
-      </h3>
-      <p className="mt-1 line-clamp-2 text-[1.05rem] font-bold leading-snug text-moss-deep">{program.amount}</p>
-      <p className="mt-2 text-sm text-ink-soft">{program.summary}</p>
-      {(program.tags?.includes("needs-verification") || /要確認/.test(program.amount)) && (
-        <p className="mt-1 text-xs text-ink-mute">金額や条件の一部は公式サイトで確認できなかったため、窓口での確認が必要です。</p>
+
+      <dl className="mt-3 border-t border-line pt-3">
+        <dt className="text-xs text-ink-mute">金額・内容の目安</dt>
+        <dd className="figure mt-0.5 line-clamp-2 leading-snug text-moss-deep">{program.amount}</dd>
+      </dl>
+
+      <p className="mt-3 text-sm text-ink-soft">{program.summary}</p>
+      {needsCheck && (
+        <p className="mt-1 text-xs text-ink-mute">一部の金額や条件は公式サイトで確認できなかったため、窓口での確認が必要です</p>
       )}
       {reasons && reasons.length > 0 && (
         <ul className="mt-2 space-y-0.5 text-sm text-amber">
           {reasons.map((r) => (
-            <li key={r}>・{r}</li>
+            <li key={r}>{r}</li>
           ))}
         </ul>
       )}
-      <div className="mt-3 flex flex-col gap-1 text-sm sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-4 flex flex-col gap-1 text-sm sm:flex-row sm:items-baseline sm:justify-between">
         <span className="text-ink-soft">窓口：{program.applyTo}</span>
-        <Link href={`/programs/${program.id}`} className="font-medium text-moss underline">
+        <Link href={`/programs/${program.id}`} className="shrink-0 text-moss underline">
           申請の方法を見る
         </Link>
       </div>

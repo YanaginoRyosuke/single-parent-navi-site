@@ -32,8 +32,8 @@ export default function ResultView() {
   if (profile === null) {
     return (
       <div className="card p-6">
-        <p className="display text-lg">診断の内容が見つかりませんでした</p>
-        <p className="mt-2 text-sm text-ink-soft">トップページから、もう一度入力してください。</p>
+        <p className="h-card">診断の内容が見つかりませんでした</p>
+        <p className="mt-2 text-sm text-ink-soft">トップページから、もう一度入力してください</p>
         <Link href="/" className="btn-primary mt-4">
           診断をはじめる
         </Link>
@@ -51,7 +51,7 @@ export default function ResultView() {
   if (editing) {
     return (
       <div>
-        <h1 className="display text-2xl">条件を変える</h1>
+        <h1 className="h-page">条件を変える</h1>
         <div className="mt-6">
           <DiagnosisForm initial={profile} />
         </div>
@@ -80,19 +80,18 @@ export default function ResultView() {
         </button>
       </p>
 
-      <h1 className="display mt-3 text-[1.5rem] sm:text-[2.1rem]">
-        あなたの家庭に関係のある制度は
+      <h1 className="h-page mt-3">
+        関係のある制度は
         <br />
-        <span className="text-moss-deep">{eligible.length + check.length}件</span>
+        <span className="figure text-moss-deep">{eligible.length + check.length}件</span>
         ありました
       </h1>
       <p className="mt-3 text-ink-soft">
-        「該当しそう」はこの条件で使える可能性が高いもの、「要確認」は所得など細かい条件で変わるものです。
-        どちらも窓口で聞いてみる価値があります。
+        「該当」はこの条件で使える可能性が高いもの、「要確認」は所得など細かい条件で変わるものです。どちらも窓口で聞いてみる価値があります。
       </p>
 
       <Section
-        title="該当しそう"
+        title="該当"
         count={eligible.length}
         empty="この条件で確実に当てはまりそうな制度は見つかりませんでした。「要確認」の制度を見てください。"
         items={eligible}
@@ -105,7 +104,7 @@ export default function ResultView() {
 
       {no.length > 0 && (
         <details className="mt-10">
-          <summary className="display cursor-pointer text-base text-ink-soft">
+          <summary className="cursor-pointer text-ink-soft">
             今回は対象外の可能性が高い制度（{no.length}件）
           </summary>
           <div className="mt-4 space-y-3">
@@ -117,7 +116,7 @@ export default function ResultView() {
       )}
 
       <div className="mt-10 card p-5 text-sm text-ink-soft">
-        <p className="display text-base text-ink">この結果を残しておく</p>
+        <p className="h-card text-ink">この結果を残しておく</p>
         <p className="mt-1">
           このページのURLをブックマークするか、自分宛てに送っておくと、窓口に行くときにそのまま使えます。
           入力内容はURLの「#」以降に入っているだけで、サーバーには保存されていません。
@@ -141,9 +140,9 @@ function Section({
   if (count === 0 && !empty) return null;
   return (
     <section className="mt-10">
-      <h2 className="display text-xl">
+      <h2 className="h-section">
         {title}
-        <span className="ml-2 text-base font-normal text-ink-soft">{count}件</span>
+        <span className="figure ml-2 text-base text-ink-soft">{count}件</span>
       </h2>
       {count === 0 ? (
         <p className="mt-3 text-sm text-ink-soft">{empty}</p>
