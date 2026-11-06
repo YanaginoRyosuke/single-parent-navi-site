@@ -78,7 +78,7 @@
       "多子加算のカウント対象（18〜22歳の子）がいる場合は監護相当・生計費負担の確認書類"
     ],
     "sourceUrl": "https://www.cfa.go.jp/policies/kokoseido/jidouteate/annai",
-    "sourceName": "こども家庭庁",
+    "sourceName": "こども家庭庁（児童手当のご案内。所得制限なしの根拠：「児童手当制度の概要」PDF https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/1c6d2629-ef70-43fd-971d-27231e0d9e1f/2fea19c2/20241007_policies_kokoseido_jidouteate_gaiyou_06.pdf）",
     "sourceCheckedAt": "2026-11-06",
     "fiscalYear": "2026",
     "tags": [
@@ -325,7 +325,7 @@
       "notes": [
         "亡くなった人が、国民年金の被保険者である間に死亡／60〜65歳未満で国内居住／老齢基礎年金の受給資格（25年以上）を満たしている、のいずれかに該当すること。",
         "保険料納付要件：死亡日の前日時点で、納付済期間（免除期間含む）が加入期間の3分の2以上。令和18年3月末までは、65歳未満で死亡日の前々月までの直近1年間に未納がなければ可。",
-        "死亡した人に生計を維持されていたこと（生計維持の収入要件あり。具体的な年収基準は年金事務所で要確認）。",
+        "死亡した人に生計を維持されていたこと（原則として年収850万円未満。日本年金機構「遺族年金ガイド 令和8年度版」）。",
         "亡くなった人が厚生年金に加入していた場合は遺族厚生年金もあわせて受給できます。",
         "児童扶養手当と併給する場合は、年金額が手当額より低いときに差額分の手当が支給されます。"
       ]
@@ -429,8 +429,8 @@
       "受給資格認定申請書（e-Shien入力または紙）",
       "マイナンバーカードの写しまたはマイナンバー記載の住民票の写し（国籍・在留資格確認書類が必要な場合あり）"
     ],
-    "sourceUrl": "https://www.mext.go.jp/a_menu/shotou/mushouka/index.htm",
-    "sourceName": "文部科学省",
+    "sourceUrl": "https://www.mext.go.jp/content/20260616-mxt_shuukyo03-100002595_7.pdf",
+    "sourceName": "文部科学省（高等学校等就学支援金 新制度の概要・令和8年度〜。制度ページ: https://www.mext.go.jp/a_menu/shotou/mushouka/index.htm）",
     "sourceCheckedAt": "2026-11-06",
     "fiscalYear": "2026",
     "tags": [
