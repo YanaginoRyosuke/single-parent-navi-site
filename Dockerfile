@@ -14,6 +14,9 @@ COPY . .
 ARG NEXT_PUBLIC_LINE_URL=
 ENV NEXT_PUBLIC_LINE_URL=$NEXT_PUBLIC_LINE_URL
 ENV NEXT_TELEMETRY_DISABLED=1
+# 静的生成のワーカー数を抑えてビルド時のメモリを節約
+ENV NEXT_BUILD_CPUS=2
+ENV NODE_OPTIONS=--max-old-space-size=2048
 RUN npm run build
 
 # ---- 実行 ----
